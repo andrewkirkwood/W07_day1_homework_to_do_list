@@ -11,15 +11,17 @@
 
     <form v-on:submit.prevent="saveNewItem" >
       <label for="new-item">Enter new to do list item...</label>
-      <input id="new-item" type="text" v-model="newItem">
-      <input type="radio" name="button" value="high">High</input>
-      <input type="radio" name="button" value=high>Low</input>
+      <input id="new-item" type="text" v-model="newItem.name">
+      <input type="radio" name="button" value="true" v-model="newItem.priority">High</input>
+      <input type="radio" name="button" value="false" v-model="newItem.priority">Low</input>
       <input type="submit" value="Save new item">
     </form>
     <ul>
-      <li v-for="item in items">
+      <li v-for="(item, index) in items">
         <span>  {{ item.name }} </span>
-        <span> ......{{item.priority}}</span>
+        <span v-if="item.priority">............High</span>
+
+        <!-- v-on:click="assignPriority(index)" -->
       </li>
     </ul>
 
