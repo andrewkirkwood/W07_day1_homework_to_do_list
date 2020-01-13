@@ -8,7 +8,15 @@
 </head>
 <body>
   <div id="app">
+    <ul>
+      <li v-for="item in items"> {{ item }}</li>
+    </ul>
 
+    <form v-on:submit.prevent="saveNewItem" >
+      <label for="new-item">Enter new to do list item...</label>
+      <input id="new-item" type="text" v-model="newItem">
+      <input type="submit" value="Save new item">
+    </form>
   </div>
 </body>
 </html>
